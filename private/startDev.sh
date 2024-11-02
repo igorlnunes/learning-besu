@@ -20,14 +20,14 @@ echo "Cleaning up previous data"
 docker rm -f besu-node-0 besu-node-1 besu-node-2 besu-node-3 
 
 # Clean up data dir from each node
-rm -rf node/besu-0/data
-rm -rf node/besu-1/data
-rm -rf node/besu-2/data
-rm -rf node/besu-3/data
+sudo rm -rf node/besu-0/data
+sudo rm -rf node/besu-1/data
+sudo rm -rf node/besu-2/data
+sudo rm -rf node/besu-3/data
 
-rm -rf genesis
+sudo rm -rf genesis
 
-rm -rf _tmp
+sudo rm -rf _tmp
 
 # Recreate data dir for each node
 mkdir -p node/besu-0/data
@@ -55,7 +55,7 @@ done
 # Copy genesis to each node
 mkdir genesis && cp _tmp/networkFiles/genesis.json genesis/genesis.json
 
-rm -rf _tmp
+sudo rm -rf _tmp
 
 if ! docker network ls | grep -q besu_network; then
   docker network create besu_network
