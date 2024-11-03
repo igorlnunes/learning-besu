@@ -43,7 +43,7 @@ Em seguida, configure o MetaMask para se conectar à rede Besu em `http://localh
 ## 3. Executando o Besu em uma Rede Privada
 O Hyperledger Besu também pode ser configurado para operar em redes blockchain privadas, voltadas a aplicações empresariais que demandam segurança e alta performance. Uma rede privada não se conecta à Ethereum Mainnet ou Testnets. Essas redes utilizam IDs de cadeia (_chain IDs_) específicas e métodos de consenso como _Proof of Authority_ (QBFT, IBFT 2.0 ou Clique). Além disso, o Besu suporta soluções de privacidade e permissionamento.
 
-### Arquitetura de Rede Privada
+### 3.1 Arquitetura de Rede Privada
 Abaixo está uma representação da arquitetura recomendada para redes privadas no Besu:
 
 
@@ -55,51 +55,7 @@ Para iniciar uma rede privada Besu com quatro nós, utilize o script de shell:
 ./startDev.sh
 ```
 
----
-
-Essa estrutura torna o README mais acessível, destacando seções importantes e melhorando o fluxo de informações.
-
-## 2. Rodando Besu com a rede dev:
-  2.1 A rede dev trata-se do formato mais básico do Besu. Para rodar basta rodar o comando:
-
-  ```bash
-  besu --network=dev --rpc-http-enabled
-  ```
-  Isso sobe um nó do Besu com o seguinte [`genesis.json`](https://github.com/hyperledger/besu/blob/main/config/src/main/resources/dev.json)
-
-  2.2 Para checar o saldo de uma conta utilizando a API JSON-RPC, basta executar o comando abaixo:
-
-    ```bash
-    curl http://localhost:8545/ \
-      -X POST \
-      -H "Content-Type: application/json" \
-      --data '{
-              "method":"eth_getBalance",
-              "params":["0x627306090abaB3A6e1400e9345bC60c78a8BEf57", "latest"],
-              "id":1,
-              "json-rpc":"2.0"
-              }'
-    ```
-    Este comando faz um requisição utilizando o método eth_geBalance, irá retornar o saldo da carteira em hexadecimal.
-  
-  2.3 Conectando Metamask: para isso é necessário rodar o Besu com permissões de CORS. 
-
-    ```bash
-    besu --network=dev --rpc-http-enabled --rpc-http-cors-origins="all"
-    ```
-
-    Agora é necessário configurar o MetaMask para conectar com o Besu. Para isso, conectar o MetaMask com a rede `http://localhost:8545` e importar a chave privada da conta `0x627306090abaB3A6e1400e9345bC60c78a8BEf57`, encontra-se no arquivo genesis.json. Lembrando que essas carteiras são de testes e não devem ser utilizadas para movimentar valores reais.
-
-### 3. Rodando Besu em Rede Privada
-Besu pode ser utilizado para desenvolvier aplicações empresariais que requerem segurança, alta-performance de processamento de transações em uma rede blockchain privada.
-A rede privada é uma rede que não é conectada na Ethereum Mainnet ou em uma Ethereum Testnet. Redes privadas normalmente utilizam _"chain ID"_ diferenciadas e prova de consensus do tipo _"proof of authority (QBFT, IBFT 2.0 ou Clique)"_. Besu também suporta soluções que incluem a privacidade e o permissionamento.
-
-Para rodar a rede Besu bem como os quatros nós utilize o shell script:
-```bash
-  ./startDev.sh
-```
-
-### 3.1 Explicação do [script de inicialização](./startDev.sh) da rede Besu
+### 3.2 Explicação do [script de inicialização](./startDev.sh) da rede Besu
 
 
 ```bash
