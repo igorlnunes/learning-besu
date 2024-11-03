@@ -7,7 +7,7 @@ node/besu-3/data
 
 genesis
 
-contracts/node_modules
+./contracts/node_modules
 
 contracts/build/contracts
 
