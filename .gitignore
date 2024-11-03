@@ -1,15 +1,15 @@
 
 # besu
-private/node/besu-0/data
-private/node/besu-1/data
-private/node/besu-2/data
-private/node/besu-3/data
+node/besu-0/data
+node/besu-1/data
+node/besu-2/data
+node/besu-3/data
 
-private/genesis
+genesis
 
-private/contracts/node_modules
+contracts/node_modules
 
-private/contracts/build/contracts
+contracts/build/contracts
 
 .DS_Store
 
